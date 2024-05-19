@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --fix .",
+    "format": "prettier --write .",
+    "code:fix": "yarn lint && yarn format"
   },
   "dependencies": {
     "@adobe/react-spectrum": "^3.35.0",
