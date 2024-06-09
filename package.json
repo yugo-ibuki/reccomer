@@ -12,10 +12,11 @@
   },
   "dependencies": {
     "@adobe/react-spectrum": "^3.35.0",
+    "@react-spectrum/toast": "3.0.0-beta.12",
     "firebase": "^10.12.2",
     "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
