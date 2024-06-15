@@ -1,11 +1,11 @@
 'use client'
+
 import { Flex, Heading, View, Text } from '@adobe/react-spectrum'
 import { LoginButton } from '@/components'
+import { useLogin } from '@/hooks'
 
 const Page = () => {
-  const handleGoogleLogin = () => {
-    console.log('Google login clicked')
-  }
+  const { handleGoogleLogin } = useLogin()
 
   return (
     <View height="100vh">
