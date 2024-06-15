@@ -1,13 +1,12 @@
 import { useCallback, useState } from 'react'
 
-type ErrorHandler = (error: Error) => void
+type ErrorHandler = (error: unknown) => void
 
-export const useErrorHandling = (): [Error | null, ErrorHandler] => {
-  const [error, setError] = useState<Error | null>(null)
+export const useErrorHandling = (): [unknown | null, ErrorHandler] => {
+  const [error, setError] = useState<unknown | null>(null)
 
-  const handleError = useCallback((error: Error) => {
+  const handleError = useCallback((error: unknown) => {
     setError(error)
-    // エラーログの送信や通知の表示などの処理を行う
     console.error('Error occurred:', error)
   }, [])
 
