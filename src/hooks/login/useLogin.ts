@@ -34,7 +34,7 @@ export const useLogin = () => {
       router.push('/dashboard')
     }
     setLoginPageLoading(false)
-  }, [router.push, user])
+  }, [router.push, user, setLoginPageLoading, loginPageLoading])
 
   return {
     error,
