@@ -4,10 +4,11 @@ import { useRouter } from 'next/navigation'
 import { auth } from '@/configs'
 import { useToast } from '@/hooks'
 import { useAuth } from '@/providers'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const useLogin = () => {
   const { user, loading, setAuthUser } = useAuth()
+  const [loginPageLoading, setLoginPageLoading] = useState<boolean>(true)
   const { toast } = useToast()
   const [error, handleError] = useErrorHandling()
   const router = useRouter()
@@ -28,14 +29,16 @@ export const useLogin = () => {
   }
 
   useEffect(() => {
+    setLoginPageLoading(true)
     if (user) {
       router.push('/dashboard')
     }
+    setLoginPageLoading(false)
   }, [router.push, user])
 
   return {
     error,
-    loading,
+    loading: loading || loginPageLoading,
     handleGoogleLogin,
   }
 }
