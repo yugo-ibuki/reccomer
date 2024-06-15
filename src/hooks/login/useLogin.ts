@@ -12,9 +12,7 @@ export const useLogin = () => {
   const handleGoogleLogin = async () => {
     try {
       const provider = new GoogleAuthProvider()
-      const result = await signInWithPopup(auth, provider)
-      const user = result.user
-      console.log('Logged in user:', user)
+      await signInWithPopup(auth, provider)
       router.push('/dashboard')
     } catch (error: unknown) {
       handleError(error)
