@@ -5,7 +5,11 @@ import { LoginButton } from '@/components'
 import { useLogin } from '@/hooks'
 
 const Page = () => {
-  const { handleGoogleLogin } = useLogin()
+  const { handleGoogleLogin, loading } = useLogin()
+
+  if (loading) {
+    return <Text>Loading...</Text>
+  }
 
   return (
     <View height="100vh">

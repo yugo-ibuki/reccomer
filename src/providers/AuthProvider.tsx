@@ -1,3 +1,5 @@
+'use client'
+
 import {
   createContext,
   ReactNode,
@@ -11,11 +13,13 @@ import { auth } from '@/configs'
 type AuthContextType = {
   user: User | null
   loading: boolean
+  setAuthUser: (user: User | null) => void
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
+  setAuthUser: () => {},
 })
 
 export const useAuth = () => useContext(AuthContext)
@@ -24,7 +28,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
 
+  const setAuthUser = (user: User | null) => {
+    setUser(user)
+  }
+
   useEffect(() => {
+    setLoading(true)
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user)
@@ -40,6 +49,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const value = {
     user,
     loading,
+    setAuthUser,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
