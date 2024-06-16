@@ -12,7 +12,7 @@ import {
 import Link from 'next/link'
 import { useTags } from '@/hooks'
 
-type ArticleCardProps = {
+export type ArticleCardProps = {
   title: string
   author: string
   publishedAt: string
