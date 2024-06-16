@@ -22,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div>
       <View backgroundColor="gray-100" padding="size-300">
         <Flex alignItems="center" justifyContent="space-between">
-          <Heading level={2}>My App</Heading>
+          <Heading level={2}>Recommer</Heading>
           <View>
             {user ? (
               <Flex alignItems="center" gap="size-200">
