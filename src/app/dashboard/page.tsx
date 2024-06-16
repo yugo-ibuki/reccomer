@@ -41,7 +41,7 @@ const articles = [
     author: 'John Doe',
     publishedAt: '2023-06-18',
     authorThumbnail: 'https://example.com/thumbnail1.jpg',
-    tags: ['Tag 1', 'Tag 2'],
+    tags: ['Tag 1', 'Tag 2', 'tag 3', 'Tag 4', 'Tag 5'],
     linkUrl: '/article/1',
   },
   {

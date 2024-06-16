@@ -10,6 +10,7 @@ import {
   Button,
 } from '@adobe/react-spectrum'
 import Link from 'next/link'
+import { useTags } from '@/hooks'
 
 type ArticleCardProps = {
   title: string
@@ -28,6 +29,8 @@ export const ArticleCard = ({
   tags,
   linkUrl,
 }: ArticleCardProps) => {
+  const { displayedTags, remainingTagCount } = useTags(tags)
+
   return (
     <Link href={linkUrl}>
       <View
@@ -53,11 +56,12 @@ export const ArticleCard = ({
             </View>
           </View>
           <Flex gap="size-100" wrap>
-            {tags.map((tag) => (
+            {displayedTags.map((tag) => (
               <Button key={tag} variant="primary">
                 {tag}
               </Button>
             ))}
+            {remainingTagCount > 0 && <Text>+{remainingTagCount} more</Text>}
           </Flex>
         </View>
       </View>
